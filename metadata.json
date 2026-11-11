@@ -1,0 +1,6 @@
+{
+  "name": "DSA Journal - Offline LeetCode Revision & Streak Tracker",
+  "description": "Purely offline mobile DSA notebook to log LeetCode questions, track repetitions, revision history, confidence, and GitHub-style solve streak.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
