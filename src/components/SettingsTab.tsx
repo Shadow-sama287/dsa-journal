@@ -7,11 +7,9 @@ import {
   Edit2,
   Check,
   X,
-  Smartphone,
   Sun,
   Moon,
   Monitor,
-  Code2,
   CheckCircle2,
   AlertTriangle,
 } from 'lucide-react';
@@ -145,42 +143,8 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({
           Preferences &amp; Data
         </h2>
         <p className="text-[11px] text-zinc-400 dark:text-zinc-500">
-          Theme, direct APK download, offline backup &amp; tags
+          Theme, offline backup &amp; tags
         </p>
-      </div>
-
-      {/* Direct Android APK Download Card */}
-      <div className="bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-none p-3.5 space-y-2.5">
-        <div className="space-y-0.5">
-          <h3 className="text-xs font-bold text-zinc-950 dark:text-zinc-100 flex items-center gap-1.5">
-            <Smartphone className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span>Direct Android Application (.apk)</span>
-          </h3>
-          <p className="text-[11px] text-zinc-500 leading-relaxed">
-            Download the standalone Android package for direct installation on Android 11, 12, 13, 14, and 15 devices.
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-2 pt-1">
-          <a
-            href="/dsa-journal.apk"
-            download="dsa-journal.apk"
-            className="flex-1 flex items-center justify-center gap-2 px-3 py-1.5 rounded-none border border-emerald-600 dark:border-emerald-500 bg-emerald-600 dark:bg-emerald-500 text-white dark:text-zinc-950 text-xs font-semibold shadow-none transition active:scale-95"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Download dsa-journal.apk</span>
-          </a>
-
-          <a
-            href="/dsa-journal-android-source.zip"
-            download="dsa-journal-android-source.zip"
-            className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-none border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-mono hover:bg-zinc-100 dark:hover:bg-zinc-850 transition"
-            title="Download full Android Studio Kotlin/Compose project"
-          >
-            <Code2 className="w-3.5 h-3.5" />
-            <span>Source .zip</span>
-          </a>
-        </div>
       </div>
 
       {/* Theme Switcher Card */}

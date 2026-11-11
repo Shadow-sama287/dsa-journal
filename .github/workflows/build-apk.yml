@@ -59,21 +59,29 @@ jobs:
         run: |
           gradle assembleDebug --no-daemon --stacktrace
 
-      - name: Copy Built APK to public/dsa-journal.apk
+      - name: Prepare dsa-journal.apk
         run: |
-          cp android-project/app/build/outputs/apk/debug/app-debug.apk public/dsa-journal.apk
+          cp android-project/app/build/outputs/apk/debug/app-debug.apk dsa-journal.apk
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: DSA-Journal-Android-APK
-          path: public/dsa-journal.apk
+          path: dsa-journal.apk
           if-no-files-found: error
 
-      - name: Commit Built APK to Repository
-        if: github.event_name == 'push'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f public/dsa-journal.apk
-          git diff --staged --quiet || (git commit -m "chore: update compiled Android APK [skip ci]" && git push) || true
+      - name: Publish APK to GitHub Releases
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: "DSA Journal Android APK (v1.0.${{ github.run_number }})"
+          body: |
+            Automated Android APK build from commit `${{ github.sha }}`.
+
+            ### Installation
+            Download **`dsa-journal.apk`** below under **Assets** and open it on your Android device to install.
+          files: dsa-journal.apk
+          draft: false
+          prerelease: false
+          make_latest: "true"
